@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pdf-scanner
+  labels:
+    app: pdf-scanner
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pdf-scanner
+  template:
+    metadata:
+      labels:
+        app: pdf-scanner
+    spec:
+      containers:
+      - name: pdf-scanner
+        image: prabhudocker4302/pdf-scanner:latest
+        ports:
+        - containerPort: 5000
